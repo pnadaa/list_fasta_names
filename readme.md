@@ -1,4 +1,4 @@
-**list_fasta_names**
+# **list_fasta_names**
 
 A command-line utility to extract sequence names from a FASTA file. Names can be written to a plain text file (one per line), printed to stdout as a quoted space-separated string, or both at once.
 
@@ -15,7 +15,7 @@ A command-line utility to extract sequence names from a FASTA file. Names can be
 ## **Usage**
 
 ```bash
-`python list_fasta_names.py -i <input.fasta> [-o <output.txt>] [-s]`
+python list_fasta_names.py -i <input.fasta> [-o <output.txt>] [-s]
 ```
 
 ## **Arguments**
@@ -37,9 +37,9 @@ At least one of `--output` or `--string` should be provided.
 Writes each sequence name on its own line:
 
 ```text
-`sequence_1
+sequence_1
 sequence_2
-sequence_3`
+sequence_3
 ```
 
 ## **String output (`-s`)**
@@ -47,7 +47,7 @@ sequence_3`
 Prints all sequence names to stdout as double-quoted, space-separated tokens:
 
 ```text
-`"sequence_1" "sequence_2" "sequence_3"`
+"sequence_1" "sequence_2" "sequence_3"
 ```
 
 This format is useful for embedding directly into shell commands or pipelines.
@@ -59,25 +59,24 @@ This format is useful for embedding directly into shell commands or pipelines.
 **Write names to a text file:**
 
 ```bash
-`python list_fasta_names.py -i sequences.fasta -o names.txt`
+python list_fasta_names.py -i sequences.fasta -o names.txt
 ```
 
 **Print names as a quoted string:**
 
-```         
-bash
-```
+```bash
 
-`python list_fasta_names.py -i sequences.fasta -s`
+python list_fasta_names.py -i sequences.fasta -s
+```
 
 **Both at once:**
 
 ```bash
-`python list_fasta_names.py -i sequences.fasta -o names.txt -s`
+python list_fasta_names.py -i sequences.fasta -o names.txt -s
 ```
 
 **Use string output directly in a pipeline:**
 
 ```bash
-`seqkit grep -n sequences.fasta -p $(python list_fasta_names.py -i sequences.fasta -s)`
+seqkit grep -n sequences.fasta -p $(python list_fasta_names.py -i sequences.fasta -s)
 ```
